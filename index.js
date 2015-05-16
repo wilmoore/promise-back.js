@@ -23,5 +23,7 @@ module.exports = promiseback
  */
 
 function promiseback (fn) {
-  return (typeof cb !== 'function') ? promisify(fn) : fn
+  return function (cb) {
+    return (typeof cb === 'function') ? fn(cb) : promisify(fn)()
+  }
 }
