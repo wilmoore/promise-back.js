@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.4.1 - 2015-05-19
+### Changed
+- version bump.
+
 ## 0.3.3 - 2015-05-19
 ### Changed
 - more succinct example.
