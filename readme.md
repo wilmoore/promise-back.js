@@ -21,33 +21,38 @@ npm install promise-back --save
 var promiseBack = require('promise-back')
 ```
 
-###### create a thunk
+###### use partial application to create a thunk
 
 ```js
-var fs = require('fs')
-var resolve = require('path').resolve
+var file = require('fs')
+var path = require('path').resolve
 
-function readfile (f, e) {
-  return function (cb) { fs.readFile(f, e, cb) }
-}
+var filepath = resolve(__dirname, 'package.json')
+var encoding = 'utf8'
 
-var read = readfile(resolve(__dirname, 'package.json'), 'utf8')
+var read = readfile(file.readFile.bind(null, filepath, encoding))
 ```
 
-###### resolve via callback
+> NOTE: if you already have a function that takes a callback as it's only parameter, you can just pass it to `promiseBack`. Modules that expose such an interface can be passed directly to `promiseBack` without a wrapper; You may also use `Function.prototype.bind` to achieve the same.
+
+###### expose dual interface async function
 
 ```js
-promiseBack(read)(function (_, str) {
+var reader = promiseBack(read)
+```
+
+###### use callback interface
+
+```js
+reader(function (_, str) {
   assert(str.length)
 })
 ```
 
-###### resolve via promise
+###### use promise interface
 
 ```js
-var promise = promiseBack(read)()
-
-promise.then(function (str) {
+reader().then(function (str) {
   assert(str.length)
 })
 ```

@@ -12,6 +12,7 @@
   "devDependencies": {
     "istanbul": "^0.3.13",
     "nodemon": "^1.3.7",
+    "selectn": "^0.9.6",
     "standard": "^3.7.1",
     "tap-spec": "^2.2.2",
     "tape": "^4.0.0",
