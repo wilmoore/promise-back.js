@@ -35,6 +35,7 @@ read()
 .then(JSON.parse)
 .then(selectn('name'))
 .then(console.log)
+.catch(console.error)
 // promise-back
 
 /*!

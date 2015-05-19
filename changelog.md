@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.3.1 - 2015-05-19
+### Added
+- add `.catch` to promise example.
+
 ## 0.3.0 - 2015-05-19
 ### Added
 - add dev dep `selectn` to use in examples.
